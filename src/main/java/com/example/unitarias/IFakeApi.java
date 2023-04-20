@@ -7,6 +7,7 @@ public interface IFakeApi {
     List<Employee> getEmployees();
     Optional<Employee> createEmployee(Employee newEmployee);
     Boolean updateEmployee(Employee employeeData);
-    Boolean deleteEmployee(Long id);
+    void deleteEmployee(Long id);
     Employee getEmployeeById(Long id);
+	Boolean existEmployee(Long id);
 }

@@ -39,8 +39,14 @@ public class FakeApi implements IFakeApi{
         return this.employees.stream().filter(x -> x.getId().equals(id)).findFirst().get();
     }
 
-    public Boolean deleteEmployee(Long id) {
-        Employee employee = this.getEmployeeById(id);
-        return employee != null;
+    public void deleteEmployee(Long id) {
+    	if (existEmployee(id)) {
+        employees.removeIf(x -> x.getId().equals(id));
+    	}	
     }
+
+	public Boolean existEmployee(Long id) {
+		Employee employee = this.getEmployeeById(id);
+		return employee != null;
+	}
 }
