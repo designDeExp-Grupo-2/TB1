@@ -1,7 +1,11 @@
-package com.example.unitarias;
+package com.example.tb1;
 
 import org.junit.Assert;
 import org.junit.Test;
+
+import com.example.tb1.Employee;
+import com.example.tb1.FakeApi;
+import com.example.tb1.IFakeApi;
 
 public class FakeAPiTest {
     @Test
@@ -46,5 +50,12 @@ public class FakeAPiTest {
 
 
     }
-
+	@Test
+	public void testUpdateEmployee() {
+	IFakeApi fakeApi = new FakeApi();
+	
+	Employee employeeData = new Employee((long) 1L, "Jose Gomez", "75343347", 2500.0F); 
+	
+	Assert.assertEquals(fakeApi.updateEmployee(employeeData), true);
+	}
 }
